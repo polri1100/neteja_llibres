@@ -1,0 +1,38 @@
+---
+title: "amazon_analisis"
+author: "PR"
+date: "11/05/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+llibres <- read.csv("llibres.csv", header = TRUE, sep = "|")
+```
+
+
+```{r}
+llibres <- llibres[,0:7]
+```
+
+```{r}
+head(llibres)
+summary(llibres)
+str(llibres)
+```
+
+```{r}
+llibres <- llibres[,0:7]
+```
+
+```{r}
+llibres$Puntuacio <- substring(llibres$Puntuacio, 0, 4)
+llibres$Preu <- gsub('[^0-9,]','\\1', llibres$Preu)
+llibres$Paginas <- gsub('[^0-9]','\\1', llibres$Paginas)
+str(llibres)
+
+```
+
